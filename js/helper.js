@@ -49,7 +49,9 @@ var HTMLschoolCourse = '<div class= "main-word"><p>%data%</p></div>';
 var HTMLschoolDegree = '<p>%data%</p>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<p>Subjects: %data%</p>';
+var HTMLschoolMajor = '<p>Major: %data%</p>';
+var HTMLschoolSubject = '<p>Subjects: %data%</p>';
+
 
 var HTMLonlineClasses = '<h3 id = "online-h3">Online Classes</h3>';
 var HTMLonlineTitle = '<a class = "main-word" href="#">%data%</a>';

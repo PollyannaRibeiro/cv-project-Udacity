@@ -21,7 +21,7 @@ var education = {
             "location": "Recife - Brazil",
             "course": "Design",
             "degree":"Incomplete degree",
-            "majors": "[Art, Design Graphic, Cinema]",
+            "majors": ["Design"],
             "subjects": "Focus on object creation and graphic design.",
             "dates":"2005-2007",
             "url": "https://www.ufpe.br/"
@@ -31,7 +31,7 @@ var education = {
             "location": "Recife - Brazil",
             "course":"Law",
             "degree":"Bachelor degree",
-            "majors": "[Labor, Civil, Tax Law]",
+            "majors": ["Labor Law"],
             "subjects": "Study of Brazilian law: labor, constitutional, civil, tax and criminal.",
             "dates":"2007-2012",
             "url": "www.uninassau.edu.br/institucional/recife"
@@ -151,7 +151,6 @@ work.display = function (){
         var workDates = HTMLworkDates.replace(data, work.jobs[index].dates);
         var workLocation = HTMLworkLocation.replace(data, work.jobs[index].location);
         var workDescription = HTMLworkDescription.replace(data, work.jobs[index].description);
-    
         $(".work-entry:last").append(workLocation, workTitle, workDates, workEmployer , workDescription);
     }
 };
@@ -186,9 +185,16 @@ education.display = function (){
         var formattedLocal = HTMLschoolLocation.replace(data,education.schools[index].location);
         var formattedCourse = HTMLschoolCourse.replace(data,education.schools[index].course);
         var formattedDegree = HTMLschoolDegree.replace(data,education.schools[index].degree);
-        var formattedSubjects = HTMLschoolMajor.replace(data, education.schools[index].subjects);
         var formattedDate = HTMLschoolDates.replace(data,education.schools[index].dates);
-        $(".education-entry:last").append(formattedCourse, formattedDate, formattedName, formattedLocal, formattedDegree, formattedSubjects);
+        $(".education-entry:last").append(formattedCourse, formattedDate, formattedName, formattedLocal, formattedDegree);
+        if (education.schools[index].majors.length!==0){
+            for (var i =0; i<education.schools[index].majors.length; i++){
+                var formattedMajor = HTMLschoolMajor.replace(data, education.schools[index].majors[i]);
+                $(".education-entry:last").append(formattedMajor)
+            }  
+        }
+        var formattedSubjects = HTMLschoolSubject.replace(data, education.schools[index].subjects);
+        $(".education-entry:last").append(formattedSubjects); 
     }
   
     $("#education").append(HTMLonlineClasses);
